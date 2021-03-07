@@ -72,9 +72,11 @@ fi
 
 # Check config
 echo "Checking Matomo config..."
-if [ ! -f "/data/config/config.ini.php" ] && [ -f "/var/www/matomo/config/config.ini.php" ]; then
-  runas_user cp "/var/www/matomo/config/config.ini.php" "/data/config/config.ini.php"
-fi
+#if [ ! -f "/data/config/config.ini.php" ] && [ -f "/var/www/matomo/config/config.ini.php" ]; then
+#  runas_user cp "/var/www/matomo/config/config.ini.php" "/data/config/config.ini.php"
+#fi
+runas_user cp -f "/var/www/matomo/config/config.ini.php" "/data/config/config.ini.php"
+
 ln -sf "/data/config/config.ini.php" "/var/www/matomo/config/config.ini.php"
 
 # Check data-plugins folder
